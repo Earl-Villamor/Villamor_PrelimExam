@@ -1,0 +1,20 @@
+---
+- hosts: all
+  become: true
+  tasks:
+
+  - name: install python3
+    raw: apt -y update && apt install -y python-minimal
+    failed_when: false
+
+  - name:
+
+  - name: JDK CentOS
+    yum: name=java-1.8.0-openjdk.x86_64 state=present
+    when: ansible_distribution == "CentOS"
+
+  - name: JDK Ubuntu
+    package: 
+      name: openjdk-8-jdk
+      state: present
+    when: ansible_distribution == "Ubuntu"
